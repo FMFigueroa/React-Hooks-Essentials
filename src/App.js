@@ -1,6 +1,6 @@
 import React from "react";
-import ClassComponent from "./componentes/ClassComponent";
-import FunctionComponent from "./componentes/FunctionComponent";
+import MiComponenteFx from './componentes/MiComponenteFx';
+
 
 function App() {
   return (
@@ -21,8 +21,7 @@ function App() {
           alignItems: "center",
         }}
       >
-        <ClassComponent />
-        <FunctionComponent />
+        <MiComponenteFx />
       </div>
     </div>
   );
