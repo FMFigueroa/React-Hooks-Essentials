@@ -26,7 +26,7 @@ export default function MiComponenteFx() {
 
   return (
     <div className="container row">
-      <Opcion name={nombre} clickHandler={clickHandler} />
+      <Opcion name={opciones[0].name} clickHandler={clickHandler} />
     </div>
   );
 }
