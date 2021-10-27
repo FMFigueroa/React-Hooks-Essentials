@@ -18,15 +18,18 @@ export default function MiComponenteFx() {
       value: 3,
     },
   ]);
-  //Metodo para la Primera propiedad:
-  const clickHandler = () => {
-    setNombre("Estado Actual")
-  }
 
+  //Metodo para mapear una array:
+  const listaOpciones = opciones.map(({name, value}) => (
+    <div key={name.replace("","").toLowerCase()} className="col-md-4">
+      <Opcion name={name}/>
+    </div>
+
+  ));
 
   return (
     <div className="container row">
-      <Opcion name={opciones[0].name} clickHandler={clickHandler} />
+      {listaOpciones} 
     </div>
   );
 }
