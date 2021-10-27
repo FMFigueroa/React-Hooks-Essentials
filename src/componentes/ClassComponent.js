@@ -5,11 +5,8 @@ export default class ClassComponent extends Component {
   constructor(props) {
     super(props); 
     this.state = { seleccion: "" };
-  
-    this.onChangeHandler = this.onChangeHandler.bind(this);
   } 
-
-  onChangeHandler(evento) {
+  onChangeHandler =(evento) => {
     this.setState({ seleccion: evento.target.value }); 
   }
 

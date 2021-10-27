@@ -1,5 +1,6 @@
 import React from "react";
 import ClassComponent from "./componentes/ClassComponent";
+import FunctionComponent from "./componentes/FunctionComponent";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         }}
       >
         <ClassComponent />
+        <FunctionComponent />
       </div>
     </div>
   );
