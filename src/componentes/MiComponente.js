@@ -1,67 +1,57 @@
-import React, { useEffect, useState } from "react"
-import { unmountComponentAtNode } from "react-dom";
+import React, { useEffect, useState } from "react";
 
-export default function Micomponente() {
-  const [conteo, setConteo] = useState(1);
- 
-
-  useEffect(() => {
-    console.log('DidMount');
-    document.title = `DidMount: ${conteo}`;
-  },[]);
-  
-  useEffect(() => {
-    console.log('DidUpdate');
-    document.title = `DidUpdate: ${conteo}`;
-  });
+export default function MiComponente() {
+  const [lista, setLista] = useState([
+    { nombre: "leche", status: 0, precio: 4 },
+    { nombre: "fruta", status: 0, precio: 5 },
+    { nombre: "vinagre", status: 0, precio: 3 },
+    { nombre: "café", status: 0, precio: 10 },
+  ]);
 
   useEffect(() => {
-    console.log('WillUnmount');
-    document.title = 'Componente Montado';
+    actualizarCarritoDeCompra();
+  }, [lista]);
 
-    return () => {
-      console.log('Componente Desmontado');
-      document.title = 'Componente Desmontado';
-    }
-  },[]);
-   
-  const metodo = () => {
-    setConteo( conteo + 1 ) ;
+  const [seleccionados, setseleccionados] = useState([]);
+
+  const agregarALista = (e) => {
+    const nuevaLista = lista.map((producto) =>
+      producto.nombre === e.target.value
+        ? { ...producto, status: e.target.checked ? 1 : 0 }
+        : producto
+    );
+
+    setLista(nuevaLista);
   };
 
-  const eliminar = () => {
-    unmountComponentAtNode(document.getElementById('root'));
-  }
+  const actualizarCarritoDeCompra = () => {
+    const nuevoCarrito = lista
+      .filter((producto) => producto.status === 1)
+      .map((producto) => producto.nombre);
+
+    setseleccionados(nuevoCarrito);
+  };
+
+  const listaOpciones = lista.map(({ nombre, precio }) => (
+    <li
+      key={nombre.replace(" ", "").toLowerCase()}
+      onChange={agregarALista}
+      className="list-group-item"
+    >
+      <input type="checkbox" value={nombre} />${precio} {nombre}
+    </li>
+  ));
 
   return (
-    <div
-      className="container row"
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <h1>Vincular Effects con propiedades especificas del estado</h1>
-      <h3>{`DidUpdate ${conteo}`}</h3>
-      <button onClick={metodo} style={{
-          marginTop: 20,
-          borderRadius: 50,
-          backgroundColor: '#f08e',
-          width: 100,
-          padding: 9,
-          color:'white',
-          //borderWidth:5,
-        }}>
-        Evento 1
-      </button>
-      <button onClick={eliminar} style={{
-          marginTop: 20,
-          borderRadius: 50,
-          backgroundColor: '#5829',
-          width: 100,
-          padding: 9,
-          color:'white',
-          //borderWidth:5,
-        }}>
-        Desmontar
-      </button>
+    <div className="container">
+      <h2>Carrito de Compras</h2>
+
+      <ul className="list-group">{listaOpciones}</ul>
+
+      <div className="alert alert-warning" role="alert">
+        🛒 {seleccionados.map((tag, i) => [i > 0 && ", ", <> {tag} </>])}
+      </div>
+      <div></div>
     </div>
   );
 }
