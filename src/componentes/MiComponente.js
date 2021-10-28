@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
 export default function Micomponente() {
   const [conteo, setConteo] = useState(1);
-  const [opcion, setOpcion] = useState({
-    titulo: 1,
-    valor: 1,
-  });
+ 
 
   useEffect(() => {
-    console.log('test');
-    document.title= `Conteo: ${conteo}`;
-    
-  },[/* conteo */]);  
+    console.log('DidMount');
+    document.title = `DidMount: ${conteo}`;
+  },[]);
+  
+  useEffect(() => {
+    console.log('DidUpdate');
+    document.title = `DidUpdate: ${conteo}`;
+  }); 
    
-  const metodoDidMount = () => {
-    setOpcion( {...opcion, titulo: opcion.titulo + 1})
+  const metodo = () => {
     setConteo( conteo + 1 ) ;
   };
 
@@ -24,8 +24,8 @@ export default function Micomponente() {
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <h1>Vincular Effects con propiedades especificas del estado</h1>
-      <h3>{`Soy el estado ${opcion.titulo}`}</h3>
-      <button onClick={metodoDidMount} style={{
+      <h3>{`DidUpdate ${conteo}`}</h3>
+      <button onClick={metodo} style={{
           marginTop: 20,
           borderRadius: 50,
           backgroundColor: '#f08e',
