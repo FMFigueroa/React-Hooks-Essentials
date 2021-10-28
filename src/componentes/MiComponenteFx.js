@@ -30,11 +30,8 @@ export default function MiComponenteFx() {
 
     //setNombre('2');
 
-    setDireccion({
-      pais: "Venezuela",
-      estado: "Carabobo",
-      ciudad: "Valencia",
-    })
+    //spread operator son tres puntos: "..."
+    setDireccion({...direccion, estado: "Carabobo"})
   }
 
   //Metodo para mapear una array:
