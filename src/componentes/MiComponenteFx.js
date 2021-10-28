@@ -26,24 +26,32 @@ export default function MiComponenteFx() {
   ]);
 
   const cambio = () => {
-    //String
+    //String =====================================================================
     //setNombre('2');
 
-    //Objeto
+    //Objeto =====================================================================
     //spread operator accede a todos los elementos de un opjeto y lo replica,
     // se represeenta con tres puntos: "..."
     //setDireccion({...direccion, estado: "Carabobo"})
 
-    //Array
-    const newObjeto = {
+    //Array =======================================================================
+    /* const newObjeto = {
       name: "Nueva opcion",
       value: "Nuevo valor",
-    };
+    }; */
 
-    const actualizado = opciones.map((objeto) =>
-      objeto.name === "Opción 3" ? newObjeto : objeto
-    );
-    setOpciones(actualizado);
+    //const actualizado = opciones.map((objeto) => objeto.name === "Opción 3" ? newObjeto : objeto);
+    //setOpciones(actualizado);
+
+    // ========================== Agregar Objetos al Array ======================================
+
+    setOpciones([
+      ...opciones,
+      {
+        name: `Opcion ${opciones.length + 1}`,
+        value: opciones.length + 1,
+      },
+    ]);
   };
 
   //Metodo para mapear una array:
