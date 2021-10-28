@@ -45,15 +45,24 @@ export default function MiComponenteFx() {
 
     // ========================== Agregar Objetos al Array ======================================
 
-    setOpciones([
-      ...opciones,
+ /*     setOpciones = ([...opciones,
       {
         name: `Opcion ${opciones.length + 1}`,
         value: opciones.length + 1,
       },
-    ]);
-  };
+    ]); */
 
+    // ========================== Eliminar Objetos especifico del Array ======================================
+
+    //const actualizado = opciones.filter(objetos => objetos.value !== 1)
+    //setOpciones(actualizado)
+    
+    // ======================= Eliminar los Objetos del Array ================================
+  
+    const actualizado = opciones.filter(objetos => objetos.value !== opciones.length )
+    setOpciones(actualizado)
+
+  }
   //Metodo para mapear una array:
   const listaOpciones = opciones.map(({ name, value }) => (
     <div key={name.replace("", "").toLowerCase()} className="col-md-4">
