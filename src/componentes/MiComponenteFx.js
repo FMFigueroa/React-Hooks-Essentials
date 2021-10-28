@@ -40,8 +40,8 @@ export default function MiComponenteFx() {
       value: "Nuevo valor",
     };
 
-    const actualizado = opciones.map((item) =>
-      item.value === 3 ? newObjeto : item
+    const actualizado = opciones.map((objeto) =>
+      objeto.name === "Opción 3" ? newObjeto : objeto
     );
     setOpciones(actualizado);
   };
