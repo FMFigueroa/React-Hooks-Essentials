@@ -3,7 +3,14 @@ import Opcion from "./Option"
 
 export default function MiComponenteFx() {
   
-  const [nombre, setNombre] = useState("Estado Inicial");
+  const [nombre, setNombre] = useState("1");
+
+  const [direccion, setDireccion] = useState({
+    pais: "USA",
+    estado: "Arizona",
+    ciudad: "Springfileld",
+  });
+  
   const [opciones, setOpciones] = useState([
     {
       name: "Opción 1",
@@ -19,10 +26,21 @@ export default function MiComponenteFx() {
     },
   ]);
 
+  const cambio = () => {
+
+    //setNombre('2');
+
+    setDireccion({
+      pais: "Venezuela",
+      estado: "Carabobo",
+      ciudad: "Valencia",
+    })
+  }
+
   //Metodo para mapear una array:
   const listaOpciones = opciones.map(({name, value}) => (
     <div key={name.replace("","").toLowerCase()} className="col-md-4">
-      <Opcion name={name}/>
+      <Opcion name={name} clickHandler={cambio}/>
     </div>
 
   ));
