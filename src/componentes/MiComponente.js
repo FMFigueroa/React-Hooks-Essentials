@@ -4,9 +4,11 @@ export default function Micomponente () {
 
   const [nombre,setNombre] = useState(1);
 
-    
+  //el effect lo podemos utilizar para tareas donde no vamos modificaar el estado. 
   useEffect( ()=> {
     console.log(`Hola soy el useEffect numero ${nombre}`)
+    document.title =  nombre>= 2 ? `effect (${nombre})`: `effect ${nombre}`;
+
   })
 
   const metodo = () => {
