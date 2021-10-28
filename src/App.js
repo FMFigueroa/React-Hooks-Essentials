@@ -1,5 +1,5 @@
 import React from "react";
-import ClassComponent from "./componentes/ClassComponent";
+import Micomponente from "./componentes/MiComponente";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           alignItems: "center",
         }}
       >
-        <ClassComponent />
+        <Micomponente/>
       </div>
     </div>
   );

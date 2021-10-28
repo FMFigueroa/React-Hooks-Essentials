@@ -1,0 +1,15 @@
+Comenzando con useEffect
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Thu Oct 28 11:20:32 2021 -0300
+#
+# On branch capitulo_3
+# Changes to be committed:
+#	modified:   src/App.js
+#	deleted:    src/componentes/ClassComponent.js
+#
+# Untracked files:
+#	src/componentes/
+#
