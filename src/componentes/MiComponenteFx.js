@@ -61,7 +61,7 @@ export default function MiComponenteFx() {
   
     const actualizado = opciones.filter(objetos => objetos.value !== opciones.length )
     setOpciones(actualizado)
-
+    
   }
   //Metodo para mapear una array:
   const listaOpciones = opciones.map(({ name, value }) => (
