@@ -8,7 +8,7 @@ export default function Micomponente () {
   useEffect( ()=> {
     console.log(`Hola soy el useEffect numero ${nombre}`)
     document.title =  nombre>= 2 ? `effect (${nombre})`: `effect ${nombre}`;
-
+    //setNombre(nombre +1) NO CAMBIAR EL ESTADO DENTRO DEL EFFECT
   })
 
   const metodo = () => {
